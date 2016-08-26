@@ -4,7 +4,9 @@ var cookieParser = require("cookie-parser");
 module.exports = function(port, db, githubAuthoriser) {
     var app = express();
 
-    app.use(express.static("public"));
+    app.use("/", express.static(__dirname + "/../public"));
+    app.use("/lib", express.static(__dirname + "/../node_modules"));
+
     app.use(cookieParser());
 
     var users = db.collection("users");

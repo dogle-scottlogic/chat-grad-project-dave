@@ -3,23 +3,40 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-jscs");
     grunt.loadNpmTasks("grunt-mocha-test");
     grunt.loadNpmTasks("grunt-mocha-istanbul");
+    grunt.loadNpmTasks('grunt-express-server');
+    grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks("grunt-tslint");
 
     var files = ["Gruntfile.js", "server.js", "server/**/*.js", "test/**/*.js", "public/**/*.js"];
     var artifactsLocation = "build_artifacts";
 
     grunt.initConfig({
         jshint: {
-            all: files,
+            all: ["Gruntfile.js", "server.js", "server/**/*.js", "test/**/*.js"],
             options: {
                 jshintrc: true
             }
         },
         jscs: {
-            all: files
+            all: ["Gruntfile.js", "server.js", "server/**/*.js", "test/**/*.js"],
         },
         mochaTest: {
             test: {
                 src: ["test/**/*.js"]
+            }
+        },
+        tslint: {
+            options: {
+                // can be a configuration object or a filepath to tslint.json
+                configuration: "tslint.json",
+                // If set to true, tslint errors will be reported, but not fail the task
+                // If set to false, tslint errors will be reported, and the task will fail
+                force: false
+            },
+            files: {
+                src: [
+                    "public/**/*.ts"
+                ]
             }
         },
         "mocha_istanbul": {
@@ -48,6 +65,28 @@ module.exports = function(grunt) {
                 coverageFolder: artifactsLocation,
                 check: true
             }
+        },
+        watch: {
+            options: {
+                livereload: true,
+            },
+            express: {
+                files:  ["**/*.ts", "**/*.html", "**/*.css"],
+                tasks:  ["tslint", "express:dev"],
+                options: {
+                    spawn: false
+                }
+            }
+        },
+        express: {
+            options: {
+                port: 8080
+            },
+            dev: {
+                options: {
+                    script: "server.js"
+                }
+            }
         }
     });
 
@@ -69,8 +108,9 @@ module.exports = function(grunt) {
         });
     });
 
-    grunt.registerTask("check", ["jshint", "jscs"]);
+    grunt.registerTask("check", ["jshint", "jscs", "tslint"]);
     grunt.registerTask("test", ["check", "mochaTest", "mocha_istanbul", "istanbul_report",
         "istanbul_check_coverage"]);
-    grunt.registerTask("default", "test");
+    grunt.registerTask("serve", ["express:dev", "watch"]);
+    grunt.registerTask("default", "test", "serve");
 };

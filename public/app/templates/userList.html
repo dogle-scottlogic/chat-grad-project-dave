@@ -1,0 +1,28 @@
+<!-- <>{{loginUri}}</h1> -->
+<a *ngIf="!loggedIn" href={{loginUri}}>Log In</a>
+<section *ngIf="loggedIn">
+    <p>Logged in as {{user.name}}</p>
+    <h2>List of registered users</h2>
+    <ul>
+        <li *ngFor="let user of users">
+            {{user.name}}
+        </li>
+    </ul>
+</section>
+<!-- <section *ngIf="loggedIn">
+    <p>Logged in as {{user.name}}.</p>
+</section> -->
+
+
+<!-- <body ng-controller="ChatController">
+    <a ng-show="!loggedIn" href="{{loginUri}}">Log in</a>
+    <section ng-show="loggedIn">
+        <p>Logged in as {{user.name}}.</p>
+        <h2>List of registered users</h2>
+        <ul>
+            <li ng-repeat="user in users">
+                {{user.name}}
+            </li>
+        </ul>
+    </section>
+</body> -->
