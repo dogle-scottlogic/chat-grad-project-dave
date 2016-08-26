@@ -41,6 +41,9 @@ var AppComponent = (function () {
     AppComponent.prototype.ngOnInit = function () {
         this.getUser();
     };
+    AppComponent.prototype.onUserSelect = function (user) {
+        this.selectedUser = user;
+    };
     AppComponent.prototype.logIn = function (user) {
         this.loggedIn = true;
         this.user = user;
@@ -49,6 +52,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: "my-app",
+            styleUrls: ["css/users.css"],
             templateUrl: "app/templates/userList.html",
         }), 
         __metadata('design:paramtypes', [usersService_1.UsersService])

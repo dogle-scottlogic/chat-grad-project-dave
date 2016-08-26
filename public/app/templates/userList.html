@@ -3,11 +3,27 @@
 <section *ngIf="loggedIn">
     <p>Logged in as {{user.name}}</p>
     <h2>List of registered users</h2>
-    <ul>
-        <li *ngFor="let user of users">
+    <ul class="users">
+        <li *ngFor="let user of users" (click)="onUserSelect(user)">
             {{user.name}}
         </li>
     </ul>
+    <div *ngIf="selectedUser">
+      <h2>{{selectedUser.name}} details:</h2>
+
+      <div class="responsive">
+          <div class="img">
+              <a target="_blank" href={{selectedUser.avatarUrl}}>
+                  <img src={{selectedUser.avatarUrl}} alt="{{selectedUser.id}}" width="300" height="200">
+              </a>
+              <div class="desc">
+                  <div><label>ID: </label>{{selectedUser.id}}</div>
+                  <div><label>Name: </label>{{selectedUser.name}}</div>
+                  <div><button>Start Chat</button></div>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
 <!-- <section *ngIf="loggedIn">
     <p>Logged in as {{user.name}}.</p>

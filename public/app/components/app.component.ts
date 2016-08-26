@@ -4,6 +4,7 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "my-app",
+  styleUrls: ["css/users.css"],
   templateUrl: "app/templates/userList.html",
 })
 
@@ -12,6 +13,7 @@ export class AppComponent implements OnInit {
     private users: User[] = [];
     private user: User = new User();
     private loginUri = "Test";
+    private selectedUser: User;
 
     constructor(private usersService: UsersService) {
         this.loggedIn = false;
@@ -37,6 +39,10 @@ export class AppComponent implements OnInit {
 
     public ngOnInit(): void {
         this.getUser();
+    }
+
+    public onUserSelect(user: User): void {
+        this.selectedUser = user;
     }
 
     private logIn(user: any) {
