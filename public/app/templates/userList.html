@@ -1,44 +1,11 @@
-<!-- <>{{loginUri}}</h1> -->
 <a *ngIf="!loggedIn" href={{loginUri}}>Log In</a>
 <section *ngIf="loggedIn">
-    <p>Logged in as {{user.name}}</p>
+    <h3>Logged in as {{user.name}}</h3>
     <h2>List of registered users</h2>
     <ul class="users">
-        <li *ngFor="let user of users" (click)="onUserSelect(user)">
-            {{user.name}}
+        <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="onUserSelect(user)">
+            <span class="badge">{{user.id}}</span> {{user.name}}
         </li>
     </ul>
-    <div *ngIf="selectedUser">
-      <h2>{{selectedUser.name}} details:</h2>
-
-      <div class="responsive">
-          <div class="img">
-              <a target="_blank" href={{selectedUser.avatarUrl}}>
-                  <img src={{selectedUser.avatarUrl}} alt="{{selectedUser.id}}" width="300" height="200">
-              </a>
-              <div class="desc">
-                  <div><label>ID: </label>{{selectedUser.id}}</div>
-                  <div><label>Name: </label>{{selectedUser.name}}</div>
-                  <div><button>Start Chat</button></div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <my-user-detail [user]="selectedUser"></my-user-detail>
 </section>
-<!-- <section *ngIf="loggedIn">
-    <p>Logged in as {{user.name}}.</p>
-</section> -->
-
-
-<!-- <body ng-controller="ChatController">
-    <a ng-show="!loggedIn" href="{{loginUri}}">Log in</a>
-    <section ng-show="loggedIn">
-        <p>Logged in as {{user.name}}.</p>
-        <h2>List of registered users</h2>
-        <ul>
-            <li ng-repeat="user in users">
-                {{user.name}}
-            </li>
-        </ul>
-    </section>
-</body> -->

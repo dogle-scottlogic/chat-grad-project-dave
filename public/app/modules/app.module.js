@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var app_component_1 = require("../components/app.component");
+var user_detail_component_1 = require("../components/user-detail.component");
 var usersService_1 = require("../services/usersService");
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
@@ -20,7 +21,7 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             bootstrap: [app_component_1.AppComponent],
-            declarations: [app_component_1.AppComponent],
+            declarations: [app_component_1.AppComponent, user_detail_component_1.UserDetailComponent],
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
