@@ -1,15 +1,17 @@
-<div *ngIf="user">
-  <h2>{{user.name}} Details:</h2>
-  <div class="responsive">
-      <div class="img">
-          <a target="_blank" href={{user.avatarUrl}}>
-              <img src={{user.avatarUrl}} alt="{{user.id}}" width="300" height="200">
-          </a>
-          <div class="desc">
-              <div><label>ID: </label>{{user.id}}</div>
-              <div><label>Name: </label>{{user.name}}</div>
-              <div><button>Start Chat</button></div>
+<section *ngIf="user">
+    <div id="user-detail" class="section">
+      <h2>{{user.name}} Details:</h2>
+      <div class="responsive">
+          <div class="img">
+              <a target="_blank" href={{user.avatarUrl}}>
+                  <img src={{user.avatarUrl}} alt="{{user.id}}" width="300" height="200">
+              </a>
+              <div class="desc">
+                  <div><label>ID: </label>{{user.id}}</div>
+                  <div><label>Name: </label>{{user.name}}</div>
+                  <div><button>Start Chat</button></div>
+              </div>
           </div>
       </div>
   </div>
-</div>
+</section>

@@ -8,54 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var app_user_entity_1 = require("../entities/app.user.entity");
-var usersService_1 = require("../services/usersService");
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
-    function AppComponent(usersService) {
-        this.usersService = usersService;
-        this.loggedIn = false;
-        this.users = [];
-        this.user = new app_user_entity_1.User();
-        this.loginUri = "Test";
-        this.loggedIn = false;
+    function AppComponent() {
+        this.title = "Grad Chat";
     }
-    AppComponent.prototype.getUsers = function () {
-        var _this = this;
-        this.usersService
-            .getUsers()
-            .then(function (result) { return _this.users = result; });
-    };
-    AppComponent.prototype.getUser = function () {
-        var _this = this;
-        this.usersService
-            .getUser()
-            .then(function (result) { return _this.logIn(result); }, function (result) { return _this.getLoginUri(); });
-    };
-    AppComponent.prototype.getLoginUri = function () {
-        var _this = this;
-        this.usersService
-            .getLoginUri()
-            .then(function (result) { return _this.loginUri = result.uri; });
-    };
-    AppComponent.prototype.ngOnInit = function () {
-        this.getUser();
-    };
-    AppComponent.prototype.onUserSelect = function (user) {
-        this.selectedUser = user;
-    };
-    AppComponent.prototype.logIn = function (user) {
-        this.loggedIn = true;
-        this.user = user;
-        this.getUsers();
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: "my-app",
-            styleUrls: ["css/users.css"],
-            templateUrl: "app/templates/userList.html",
+            styleUrls: ["css/login.css"],
+            templateUrl: "app/templates/login.html",
         }), 
-        __metadata('design:paramtypes', [usersService_1.UsersService])
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());

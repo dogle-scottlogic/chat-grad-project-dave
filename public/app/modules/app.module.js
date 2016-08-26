@@ -8,8 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var app_routing_1 = require("../app.routing");
 var app_component_1 = require("../components/app.component");
 var user_detail_component_1 = require("../components/user-detail.component");
+var user_list_component_1 = require("../components/user-list.component");
 var usersService_1 = require("../services/usersService");
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
@@ -21,11 +23,16 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             bootstrap: [app_component_1.AppComponent],
-            declarations: [app_component_1.AppComponent, user_detail_component_1.UserDetailComponent],
+            declarations: [
+                app_component_1.AppComponent,
+                user_detail_component_1.UserDetailComponent,
+                user_list_component_1.UserListComponent,
+            ],
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
+                app_routing_1.routing,
             ],
             providers: [usersService_1.UsersService],
         }), 

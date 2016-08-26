@@ -1,4 +1,4 @@
-import { Todo } from "../components/todos.component";
+/*import { Todo } from "../components/todos.component";
 import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({name: "filterTodos", pure: false})
@@ -13,4 +13,4 @@ export class FilterTodos implements PipeTransform {
             return list;
       }
   }
-}
+}*/
