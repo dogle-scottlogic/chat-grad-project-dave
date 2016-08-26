@@ -36,7 +36,7 @@
     width: 30%;
     color: white;
     padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B;
+    background-color: #1ed2c8;
     line-height: 1em;
     float: left;
     position: relative;
@@ -49,4 +49,5 @@
 
   .user-section {
       width: 48%;
+      float: left;
   }

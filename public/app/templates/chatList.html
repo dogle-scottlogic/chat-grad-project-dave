@@ -1,0 +1,12 @@
+<div class="chat-list-section">
+    <section >
+            <div id="chat-list" class="section">
+                <h2>List of current chats</h2>
+                <ul class="chats">
+                    <li *ngFor="let chat of chats" [class.selected]="chat === selectedChat" (click)="onChatSelect(chat)">
+                        <span class="badge">{{chat.id}}</span> {{chat.name}}
+                    </li>
+                </ul>
+            </div>
+    </section>
+</div>

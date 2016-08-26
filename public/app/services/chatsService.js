@@ -9,18 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+require("rxjs/add/operator/toPromise");
+var ChatsService = (function () {
+    function ChatsService() {
+        this.chatList = [];
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: "my-app",
-            styleUrls: ["css/login.css"],
-            templateUrl: "app/templates/login.html",
-        }), 
+    ChatsService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ChatsService);
+    return ChatsService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ChatsService = ChatsService;
+//# sourceMappingURL=chatsService.js.map

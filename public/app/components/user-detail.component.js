@@ -8,11 +8,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var app_chat_entity_1 = require("../entities/app.chat.entity");
 var app_user_entity_1 = require("../entities/app.user.entity");
+var chatsService_1 = require("../services/chatsService");
 var core_1 = require("@angular/core");
 var UserDetailComponent = (function () {
-    function UserDetailComponent() {
+    function UserDetailComponent(chatsService) {
+        this.chatsService = chatsService;
     }
+    UserDetailComponent.prototype.add = function (user) {
+        var chat = new app_chat_entity_1.Chat();
+        chat.id = 1;
+        chat.name = "topic";
+        chat.contact = user.name;
+        chat.lastSpoke = null;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', app_user_entity_1.User)
@@ -23,7 +33,7 @@ var UserDetailComponent = (function () {
             styleUrls: ["css/users-detail.css"],
             templateUrl: "app/templates/user-detail.html",
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [chatsService_1.ChatsService])
     ], UserDetailComponent);
     return UserDetailComponent;
 }());

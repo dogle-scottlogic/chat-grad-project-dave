@@ -1,7 +1,9 @@
 import { routing }        from "../app.routing";
 import { AppComponent }  from "../components/app.component";
+import { ChatListComponent } from "../components/chat-list.component";
 import { UserDetailComponent } from "../components/user-detail.component";
 import { UserListComponent } from "../components/user-list.component";
+import { ChatsService }  from "../services/chatsService";
 import { UsersService }  from "../services/usersService";
 import { NgModule }      from "@angular/core";
 import { FormsModule }   from "@angular/forms";
@@ -12,6 +14,7 @@ import { BrowserModule } from "@angular/platform-browser";
   bootstrap:    [ AppComponent ],
   declarations: [
       AppComponent,
+      ChatListComponent,
       UserDetailComponent,
       UserListComponent,
   ],
@@ -21,6 +24,6 @@ import { BrowserModule } from "@angular/platform-browser";
       HttpModule,
       routing,
   ],
-  providers: [UsersService],
+  providers: [UsersService, ChatsService],
 })
 export class AppModule { }

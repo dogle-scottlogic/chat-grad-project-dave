@@ -8,19 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var chatsService_1 = require("../services/chatsService");
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var ChatListComponent = (function () {
+    function ChatListComponent(chatsService) {
+        this.chatsService = chatsService;
     }
-    AppComponent = __decorate([
+    ChatListComponent.prototype.onChatSelect = function (chat) {
+        this.selectedChat = chat;
+    };
+    ChatListComponent = __decorate([
         core_1.Component({
-            selector: "my-app",
-            styleUrls: ["css/login.css"],
-            templateUrl: "app/templates/login.html",
+            selector: "chat-list",
+            styleUrls: ["css/chat-list.css"],
+            templateUrl: "app/templates/chatList.html",
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [chatsService_1.ChatsService])
+    ], ChatListComponent);
+    return ChatListComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ChatListComponent = ChatListComponent;
+//# sourceMappingURL=chat-list.component.js.map

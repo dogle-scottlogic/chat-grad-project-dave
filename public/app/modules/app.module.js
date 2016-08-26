@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var app_routing_1 = require("../app.routing");
 var app_component_1 = require("../components/app.component");
+var chat_list_component_1 = require("../components/chat-list.component");
 var user_detail_component_1 = require("../components/user-detail.component");
 var user_list_component_1 = require("../components/user-list.component");
+var chatsService_1 = require("../services/chatsService");
 var usersService_1 = require("../services/usersService");
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
@@ -25,6 +27,7 @@ var AppModule = (function () {
             bootstrap: [app_component_1.AppComponent],
             declarations: [
                 app_component_1.AppComponent,
+                chat_list_component_1.ChatListComponent,
                 user_detail_component_1.UserDetailComponent,
                 user_list_component_1.UserListComponent,
             ],
@@ -34,7 +37,7 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 app_routing_1.routing,
             ],
-            providers: [usersService_1.UsersService],
+            providers: [usersService_1.UsersService, chatsService_1.ChatsService],
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
