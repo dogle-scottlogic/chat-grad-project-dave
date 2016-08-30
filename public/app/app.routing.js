@@ -1,16 +1,17 @@
-"use strict";
-var user_list_component_1 = require("./components/user-list.component");
-var router_1 = require("@angular/router");
-var appRoutes = [
+/*import { UserListComponent }      from "./components/user-list.component";
+import { RouterModule, Routes } from "@angular/router";
+
+const appRoutes: Routes = [
     {
         path: "",
         pathMatch: "full",
         redirectTo: "Users",
     },
     {
-        component: user_list_component_1.UserListComponent,
+        component: UserListComponent,
         path: "Users",
     },
 ];
-exports.routing = router_1.RouterModule.forRoot(appRoutes);
+
+export const routing = RouterModule.forRoot(appRoutes);*/
 //# sourceMappingURL=app.routing.js.map

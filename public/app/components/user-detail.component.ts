@@ -2,6 +2,7 @@ import { Chat } from "../entities/app.chat.entity";
 import { User } from "../entities/app.user.entity";
 import { ChatsService } from "../services/chatsService";
 import { Component, Input } from "@angular/core";
+import { UUID } from "angular2-uuid";
 
 @Component({
   selector: "my-user-detail",
@@ -16,10 +17,11 @@ export class UserDetailComponent {
     }
 
     public add(user: User) {
-        var chat = new Chat();
-        chat.id = 1;
-        chat.name = "topic";
+        const chat = new Chat();
+        chat.id = UUID.UUID();
+        chat.name = "New Chat";
         chat.contact = user.name;
-        chat.lastSpoke = null;
+        chat.lastSpoke = new Date();
+        this.chatsService.add(chat);
     }
 }

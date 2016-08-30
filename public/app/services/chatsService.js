@@ -14,6 +14,9 @@ var ChatsService = (function () {
     function ChatsService() {
         this.chatList = [];
     }
+    ChatsService.prototype.add = function (chat) {
+        this.chatList.push(chat);
+    };
     ChatsService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

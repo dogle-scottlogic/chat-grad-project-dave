@@ -13,9 +13,10 @@ var core_1 = require("@angular/core");
 var ChatListComponent = (function () {
     function ChatListComponent(chatsService) {
         this.chatsService = chatsService;
+        this.chats = chatsService.chatList;
     }
     ChatListComponent.prototype.onChatSelect = function (chat) {
-        this.selectedChat = chat;
+        console.log(this.chats);
     };
     ChatListComponent = __decorate([
         core_1.Component({

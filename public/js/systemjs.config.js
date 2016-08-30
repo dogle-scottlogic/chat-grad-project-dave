@@ -8,13 +8,15 @@
     'app':                        'app', // 'dist',
     '@angular':                   'lib/@angular',
     'angular2-in-memory-web-api': 'lib/angular2-in-memory-web-api',
-    'rxjs':                       'lib/rxjs'
+    'angular2-uuid':              'lib/angular2-uuid',
+    'rxjs':                       'lib/rxjs',
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'app.main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+    'angular2-uuid':              { main: 'index.js', defaultExtension: 'js'},
   };
   var ngPackageNames = [
     'common',
@@ -22,6 +24,7 @@
     'core',
     'forms',
     'http',
+    'uuid',
     'platform-browser',
     'platform-browser-dynamic',
     'router',

@@ -14,10 +14,7 @@ var core_1 = require("@angular/core");
 var UserListComponent = (function () {
     function UserListComponent(usersService) {
         this.usersService = usersService;
-        this.loggedIn = false;
         this.users = [];
-        this.user = new app_user_entity_1.User();
-        this.loginUri = "Test";
         this.loggedIn = false;
     }
     UserListComponent.prototype.getUsers = function () {
@@ -49,6 +46,10 @@ var UserListComponent = (function () {
         this.user = user;
         this.getUsers();
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', app_user_entity_1.User)
+    ], UserListComponent.prototype, "user", void 0);
     UserListComponent = __decorate([
         core_1.Component({
             selector: "my-users",

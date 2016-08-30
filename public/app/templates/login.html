@@ -1,4 +1,8 @@
 <div class="header">
     <h1>Grad Chat</h1>
 </div>
-<router-outlet></router-outlet>
+<a *ngIf="!loggedIn" href={{loginUri}}>Log In</a>
+<section *ngIf="loggedIn">
+    <my-users [user]="user"></my-users>
+    <chat-list></chat-list>
+</section>

@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var app_routing_1 = require("../app.routing");
 var app_component_1 = require("../components/app.component");
 var chat_list_component_1 = require("../components/chat-list.component");
 var user_detail_component_1 = require("../components/user-detail.component");
@@ -35,7 +34,6 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
-                app_routing_1.routing,
             ],
             providers: [usersService_1.UsersService, chatsService_1.ChatsService],
         }), 

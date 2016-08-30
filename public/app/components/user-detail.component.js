@@ -12,16 +12,18 @@ var app_chat_entity_1 = require("../entities/app.chat.entity");
 var app_user_entity_1 = require("../entities/app.user.entity");
 var chatsService_1 = require("../services/chatsService");
 var core_1 = require("@angular/core");
+var angular2_uuid_1 = require("angular2-uuid");
 var UserDetailComponent = (function () {
     function UserDetailComponent(chatsService) {
         this.chatsService = chatsService;
     }
     UserDetailComponent.prototype.add = function (user) {
         var chat = new app_chat_entity_1.Chat();
-        chat.id = 1;
-        chat.name = "topic";
+        chat.id = angular2_uuid_1.UUID.UUID();
+        chat.name = "New Chat";
         chat.contact = user.name;
-        chat.lastSpoke = null;
+        chat.lastSpoke = new Date();
+        this.chatsService.add(chat);
     };
     __decorate([
         core_1.Input(), 

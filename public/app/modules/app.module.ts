@@ -1,4 +1,3 @@
-import { routing }        from "../app.routing";
 import { AppComponent }  from "../components/app.component";
 import { ChatListComponent } from "../components/chat-list.component";
 import { UserDetailComponent } from "../components/user-detail.component";
@@ -22,7 +21,6 @@ import { BrowserModule } from "@angular/platform-browser";
       BrowserModule,
       FormsModule,
       HttpModule,
-      routing,
   ],
   providers: [UsersService, ChatsService],
 })

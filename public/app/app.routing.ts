@@ -1,4 +1,4 @@
-import { UserListComponent }      from "./components/user-list.component";
+/*import { UserListComponent }      from "./components/user-list.component";
 import { RouterModule, Routes } from "@angular/router";
 
 const appRoutes: Routes = [
@@ -13,4 +13,4 @@ const appRoutes: Routes = [
     },
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes);*/

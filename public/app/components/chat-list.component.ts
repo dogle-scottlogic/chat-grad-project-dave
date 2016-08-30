@@ -1,7 +1,6 @@
 import { Chat } from "../entities/app.chat.entity";
 import { ChatsService } from "../services/chatsService";
 import { Component } from "@angular/core";
-import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: "chat-list",
@@ -11,12 +10,12 @@ import {Subscription} from 'rxjs/Subscription';
 export class ChatListComponent {
     private chats: Chat[];
     private selectedChat: Chat;
-    private subscription:Subscription;
 
-    constructor(private chatsService: ChatsService) {}
+    constructor(private chatsService: ChatsService) {
+        this.chats = chatsService.chatList;
+    }
 
-
-    public onChatSelect(chat: Chat): void {
-        this.selectedChat = chat;
+    public onChatSelect(chat) {
+        console.log(this.chats);
     }
 }

@@ -6,4 +6,8 @@ import "rxjs/add/operator/toPromise";
 export class ChatsService {
 
     public chatList: Chat[] = [];
+
+    public add(chat: Chat) {
+        this.chatList.push(chat);
+    }
 }

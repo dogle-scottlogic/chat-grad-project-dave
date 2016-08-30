@@ -1,6 +1,6 @@
 import { User } from "../entities/app.user.entity";
 import { UsersService } from "../services/usersService";
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
   selector: "my-users",
@@ -9,10 +9,10 @@ import { Component, OnInit } from "@angular/core";
 })
 
 export class UserListComponent implements OnInit {
-    private loggedIn = false;
+    @Input() public user: User;
+    private loggedIn: boolean;
     private users: User[] = [];
-    private user: User = new User();
-    private loginUri = "Test";
+    private loginUri: string;
     private selectedUser: User;
 
     constructor(private usersService: UsersService) {
