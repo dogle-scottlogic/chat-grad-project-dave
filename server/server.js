@@ -1,5 +1,6 @@
 var express = require("express");
 var cookieParser = require("cookie-parser");
+var bodyParser = require("body-parser");
 
 module.exports = function(port, db, githubAuthoriser) {
     var app = express();
@@ -7,7 +8,9 @@ module.exports = function(port, db, githubAuthoriser) {
     app.use("/lib", express.static(__dirname + "/../node_modules"));
 
     app.use(cookieParser());
+    app.use(bodyParser.json());
     var users = db.collection("users");
+    var chats = db.collection("chats");
     var sessions = {};
 
     app.get("/oauth", function(req, res) {
@@ -85,5 +88,39 @@ module.exports = function(port, db, githubAuthoriser) {
             }
         });
     });
+
+    app.get("/api/chats", function(req, res) {
+        chats.find().toArray(function(err, docs) {
+            if (!err) {
+                res.json(docs.map(function(chat) {
+                    return {
+                        id: chat._id,
+                        chatFromId: chat.chatFromId,
+                        chatToId: chat.chatToId,
+                        chatToName: chat.chatToName,
+                        chatName: chat.chatName,
+                        lastSpoke: chat.lastSpoke,
+                        name: chat.name,
+                    };
+                }));
+            } else {
+                res.sendStatus(500);
+            }
+        });
+    });
+
+    app.post("/api/chats", function(req, res) {
+        var chat = req.body;
+        db.collection("chats").insert(chat, {w:1}, function(err, result) {
+            if(err) {
+                res.sendStatus(500);
+                return;
+            }
+            res.set("Id", chat._id);
+            res.set("Location", "/api/todo/" + chat._id);
+            res.sendStatus(201);
+        });
+    });
+
     return app.listen(port);
 };

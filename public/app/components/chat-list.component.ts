@@ -13,6 +13,7 @@ export class ChatListComponent {
 
     constructor(private chatsService: ChatsService) {
         this.chats = chatsService.chatList;
+        chatsService.getChats();
     }
 
     public onChatSelect(chat) {

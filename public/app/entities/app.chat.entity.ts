@@ -1,8 +1,10 @@
 import { UUID } from "angular2-uuid";
 
 export class Chat {
-    public id: UUID;
-    public name: string;
-    public contact: string;
-    public lastSpoke: Date;
+    public _id: UUID;
+    public chatFromId = "dogle-scottlogic";
+    public chatToId: string;
+    public chatToName: string;
+    public chatName: string;
+    public lastSpoke: Date = new Date();
 }

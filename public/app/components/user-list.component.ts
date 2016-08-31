@@ -10,13 +10,11 @@ import { Component, Input, OnInit } from "@angular/core";
 
 export class UserListComponent implements OnInit {
     @Input() public user: User;
-    private loggedIn: boolean;
     private users: User[] = [];
     private loginUri: string;
     private selectedUser: User;
 
     constructor(private usersService: UsersService) {
-        this.loggedIn = false;
     }
 
     public getUsers(): void {
@@ -25,29 +23,11 @@ export class UserListComponent implements OnInit {
             .then( result => this.users = result);
     }
 
-    public getUser(): void {
-        this.usersService
-        .getUser()
-        .then( result => this.logIn(result), result => this.getLoginUri());
-    }
-
-    public getLoginUri(): void {
-        this.usersService
-        .getLoginUri()
-        .then( result => this.loginUri = result.uri );
-    }
-
     public ngOnInit(): void {
-        this.getUser();
+        this.getUsers();
     }
 
     public onUserSelect(user: User): void {
         this.selectedUser = user;
-    }
-
-    private logIn(user: any) {
-        this.loggedIn = true;
-        this.user = user;
-        this.getUsers();
     }
 }

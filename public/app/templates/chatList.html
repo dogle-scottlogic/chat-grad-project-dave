@@ -3,7 +3,7 @@
         <h2>List of current chats</h2>
         <ul class="chats">
             <li *ngFor="let chat of chats" [class.selected]="chat === selectedChat" (click)="onChatSelect(chat)">
-                <span class="badge">{{chat.contact}}</span> {{chat.name}} <i id="dateTime">( {{chat.lastSpoke.toDateString()}}</i> )
+                <span class="badge">{{chat.chatToId}}</span> {{chat.chatToName}} - {{chat.chatName}}<i id="dateTime">( {{chat.lastSpoke.toDateString()}} )</i>
             </li>
         </ul>
     </div>

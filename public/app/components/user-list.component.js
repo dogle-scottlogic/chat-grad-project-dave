@@ -15,7 +15,6 @@ var UserListComponent = (function () {
     function UserListComponent(usersService) {
         this.usersService = usersService;
         this.users = [];
-        this.loggedIn = false;
     }
     UserListComponent.prototype.getUsers = function () {
         var _this = this;
@@ -23,28 +22,11 @@ var UserListComponent = (function () {
             .getUsers()
             .then(function (result) { return _this.users = result; });
     };
-    UserListComponent.prototype.getUser = function () {
-        var _this = this;
-        this.usersService
-            .getUser()
-            .then(function (result) { return _this.logIn(result); }, function (result) { return _this.getLoginUri(); });
-    };
-    UserListComponent.prototype.getLoginUri = function () {
-        var _this = this;
-        this.usersService
-            .getLoginUri()
-            .then(function (result) { return _this.loginUri = result.uri; });
-    };
     UserListComponent.prototype.ngOnInit = function () {
-        this.getUser();
+        this.getUsers();
     };
     UserListComponent.prototype.onUserSelect = function (user) {
         this.selectedUser = user;
-    };
-    UserListComponent.prototype.logIn = function (user) {
-        this.loggedIn = true;
-        this.user = user;
-        this.getUsers();
     };
     __decorate([
         core_1.Input(), 

@@ -1,1 +1,1 @@
-{"version":3,"file":"app.chat.entity.js","sourceRoot":"","sources":["app.chat.entity.ts"],"names":[],"mappings":";AAEA;IAAA;IAKA,CAAC;IAAD,WAAC;AAAD,CAAC,AALD,IAKC;AALY,YAAI,OAKhB,CAAA"}
+{"version":3,"file":"app.chat.entity.js","sourceRoot":"","sources":["app.chat.entity.ts"],"names":[],"mappings":";AAEA;IAAA;QAEW,eAAU,GAAG,kBAAkB,CAAC;QAIhC,cAAS,GAAS,IAAI,IAAI,EAAE,CAAC;IACxC,CAAC;IAAD,WAAC;AAAD,CAAC,AAPD,IAOC;AAPY,YAAI,OAOhB,CAAA"}

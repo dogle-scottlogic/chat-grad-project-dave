@@ -28,23 +28,15 @@ MongoClient.connect(dbUri, function(err, db) {
                     console.log("Dropping collection 'users'");
                     if(err) {
                         console.log("Failed to drop users collection", err);
-                        return;
                     }
-                    ddb.createCollection("users", function(err, collection) {
-                        console.log("Creating collection 'users'");
+                    ddb.collection("users").insert(docs, {w:1}, function(err, result) {
+                        console.log("Inserting users into database");
                         if(err) {
-                            console.log("Failed to create users collection", err);
+                            console.log("Error fetching users", err);
                             return;
                         }
-                        collection.insert(docs, {w:1}, function(err, result) {
-                            console.log("Inserting users into database");
-                            if(err) {
-                                console.log("Error fetching users", err);
-                                return;
-                            }
-                            server(port, ddb, githubAuthoriser);
-                            console.log("Server running on port " + port);
-                        });
+                        server(port, ddb, githubAuthoriser);
+                        console.log("Server running on port " + port);
                     });
                 });
             });

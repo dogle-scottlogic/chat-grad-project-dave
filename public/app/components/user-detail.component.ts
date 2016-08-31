@@ -18,10 +18,10 @@ export class UserDetailComponent {
 
     public add(user: User) {
         const chat = new Chat();
-        chat.id = UUID.UUID();
-        chat.name = "New Chat";
-        chat.contact = user.name;
-        chat.lastSpoke = new Date();
-        this.chatsService.add(chat);
+        chat._id = UUID.UUID();
+        chat.chatToId = user.id;
+        chat.chatToName = user.name;
+        chat.chatName = "New Chat";
+        this.chatsService.addChat(chat);
     }
 }

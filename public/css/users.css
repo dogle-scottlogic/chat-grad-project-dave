@@ -30,21 +30,42 @@
     position: relative;
     top: -3px;
   }
+
   .users .badge {
-    display: inline-block;
-    font-size: small;
-    width: 30%;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #1ed2c8;
-    line-height: 1em;
-    float: left;
-    position: relative;
-    left: -1px;
-    top: -4px;
-    height: 1.8em;
-    margin-right: .8em;
-    border-radius: 4px 0 0 4px;
+      -moz-box-shadow: 0px 1px 0px 0px #fff6af;
+      -webkit-box-shadow: 0px 1px 0px 0px #fff6af;
+      box-shadow: 0px 1px 0px 0px #fff6af;
+      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #FFFFCC), color-stop(1, #1ed2c8));
+      background:-moz-linear-gradient(top, #FFFFCC 5%, #1ed2c8 100%);
+      background:-webkit-linear-gradient(top, #FFFFCC 5%, #1ed2c8 100%);
+      background:-o-linear-gradient(top, #FFFFCC 5%, #1ed2c8 100%);
+      background:-ms-linear-gradient(top, #FFFFCC 5%, #1ed2c8 100%);
+      background:linear-gradient(to bottom, #FFFFCC 5%, #1ed2c8 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#1ed2c8',GradientType=0);
+      background-color:#FFFFCC;
+      display: inline-block;
+      font-size: small;
+      width: 30%;
+      color: #333333;
+      padding: 0.8em 0.7em 0 0.7em;
+      line-height: 1em;
+      float: left;
+      position: relative;
+      left: -1px;
+      top: -4px;
+      height: 1.8em;
+      margin-right: .8em;
+      border-radius: 4px 0 0 4px;
+  }
+
+  .users .badge:hover {
+      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+      background:-moz-linear-gradient(top, #1ed2c8 5%, #FFFFCC 100%);
+      background:-webkit-linear-gradient(top, #1ed2c8 5%, #FFFFCC 100%);
+      background:-o-linear-gradient(top, #1ed2c8 5%, #FFFFCC 100%);
+      background:-ms-linear-gradient(top, #1ed2c8 5%, #FFFFCC 100%);
+      background:linear-gradient(to bottom, #1ed2c8 5%, #FFFFCC 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
   }
 
   .user-section {

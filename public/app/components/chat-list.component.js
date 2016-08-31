@@ -14,6 +14,7 @@ var ChatListComponent = (function () {
     function ChatListComponent(chatsService) {
         this.chatsService = chatsService;
         this.chats = chatsService.chatList;
+        chatsService.getChats();
     }
     ChatListComponent.prototype.onChatSelect = function (chat) {
         console.log(this.chats);

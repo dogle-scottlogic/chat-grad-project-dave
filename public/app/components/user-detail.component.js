@@ -19,11 +19,11 @@ var UserDetailComponent = (function () {
     }
     UserDetailComponent.prototype.add = function (user) {
         var chat = new app_chat_entity_1.Chat();
-        chat.id = angular2_uuid_1.UUID.UUID();
-        chat.name = "New Chat";
-        chat.contact = user.name;
-        chat.lastSpoke = new Date();
-        this.chatsService.add(chat);
+        chat._id = angular2_uuid_1.UUID.UUID();
+        chat.chatToId = user.id;
+        chat.chatToName = user.name;
+        chat.chatName = "New Chat";
+        this.chatsService.addChat(chat);
     };
     __decorate([
         core_1.Input(), 
