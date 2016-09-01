@@ -17,7 +17,7 @@ var ChatListComponent = (function () {
         chatsService.getChats();
     }
     ChatListComponent.prototype.onChatSelect = function (chat) {
-        console.log(this.chats);
+        console.log(this.selectedChat);
     };
     ChatListComponent = __decorate([
         core_1.Component({

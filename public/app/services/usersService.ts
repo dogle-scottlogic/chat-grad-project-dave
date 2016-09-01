@@ -7,8 +7,8 @@ import "rxjs/add/operator/toPromise";
 export class UsersService {
 
     private usersUrl = "/api/users";
-    private userUrl = "/api/user";
-    private loginUrl = "/api/oauth/uri";
+    private userUrl = "/api/users/user";
+    private loginUrl = "/oauth/uri";
 
     constructor(private http: Http) { }
 

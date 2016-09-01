@@ -17,6 +17,6 @@ export class ChatListComponent {
     }
 
     public onChatSelect(chat) {
-        console.log(this.chats);
+        console.log(this.selectedChat);
     }
 }

@@ -8,11 +8,7 @@ export class ChatsService {
 
     public chatList: Chat[] = [];
     private chatsUrl = "/api/chats";
-    private handleChatAdded = function(chat: Chat, res: Response): void {
-        if(res.status === 201) {
-            this.chatList.push(chat);
-        }
-    };
+
     private extractChats = function(res: Response): void {
         if(res.status === 200) {
             let chats = res.json();
@@ -48,6 +44,14 @@ export class ChatsService {
          console.error("An error occurred", error);
          return Promise.reject(error.message || error);
      }
+
+     private handleChatAdded (chat: Chat, res: Response): void {
+         if(res.status === 201) {
+             this.chatList.push(chat);
+         } else {
+             console.log("Error adding chat");
+         }
+     };
 
      private createChat(chat): Chat {
          let newChat = new Chat();

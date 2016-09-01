@@ -17,11 +17,6 @@ var ChatsService = (function () {
         this.http = http;
         this.chatList = [];
         this.chatsUrl = "/api/chats";
-        this.handleChatAdded = function (chat, res) {
-            if (res.status === 201) {
-                this.chatList.push(chat);
-            }
-        };
         this.extractChats = function (res) {
             if (res.status === 200) {
                 var chats = res.json();
@@ -55,6 +50,15 @@ var ChatsService = (function () {
         console.error("An error occurred", error);
         return Promise.reject(error.message || error);
     };
+    ChatsService.prototype.handleChatAdded = function (chat, res) {
+        if (res.status === 201) {
+            this.chatList.push(chat);
+        }
+        else {
+            console.log("Error adding chat");
+        }
+    };
+    ;
     ChatsService.prototype.createChat = function (chat) {
         var newChat = new app_chat_entity_1.Chat();
         newChat._id = chat.id;

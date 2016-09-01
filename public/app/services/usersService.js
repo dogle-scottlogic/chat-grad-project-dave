@@ -15,8 +15,8 @@ var UsersService = (function () {
     function UsersService(http) {
         this.http = http;
         this.usersUrl = "/api/users";
-        this.userUrl = "/api/user";
-        this.loginUrl = "/api/oauth/uri";
+        this.userUrl = "/api/users/user";
+        this.loginUrl = "/oauth/uri";
     }
     // Get
     UsersService.prototype.getUsers = function () {

@@ -11,7 +11,6 @@ import { Component, Input, OnInit } from "@angular/core";
 export class UserListComponent implements OnInit {
     @Input() public user: User;
     private users: User[] = [];
-    private loginUri: string;
     private selectedUser: User;
 
     constructor(private usersService: UsersService) {
