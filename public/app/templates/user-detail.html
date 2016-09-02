@@ -7,7 +7,7 @@
                   <img src={{user.avatarUrl}} alt="{{user.id}}" width="300" height="200">
               </a>
               <div class="desc">
-                  <div><label>ID: </label>{{user.id}}</div>
+                  <div><label>ID: </label>{{user._id}}</div>
                   <div><label>Name: </label>{{user.name}}</div>
                   <div><button (click)="add(user)">Start Chat</button></div>
               </div>

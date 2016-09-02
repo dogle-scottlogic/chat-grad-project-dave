@@ -1,15 +1,16 @@
-var db = require('../db')
+var db = require("../db");
 
 // Add a new user
 exports.add = function(user, cb) {
-    db.get().collection("users").insert(user, {w: 1}, function(err, result) {
+    var users = db.get().collection("users");
+    users.insertOne(user, {w: 1}, function(err, result) {
         if (err) {
             cb(err, null);
         } else {
             cb(null, user._id);
         }
     });
-}
+};
 
 // Get a particular user
 exports.find = function(id, cb) {
@@ -19,16 +20,16 @@ exports.find = function(id, cb) {
     }, function(err, user) {
         cb(err, user);
     });
-}
+};
 
 // Get all users
 exports.all = function(cb) {
-    var users = db.get().collection("users")
+    var users = db.get().collection("users");
     users.find().toArray(function(err, docs) {
         if (!err) {
             cb(null, docs.map(function(user) {
                 return {
-                    id: user._id,
+                    _id: user._id,
                     name: user.name,
                     avatarUrl: user.avatarUrl
                 };
@@ -37,4 +38,4 @@ exports.all = function(cb) {
             cb(err, null);
         }
     });
-}
+};

@@ -1,11 +1,11 @@
-var express = require('express'),
-router = express.Router(),
-cm = require('../models/chatsModel'),
-auth = require('../middleware/auth');
+var express = require("express");
+var router = express.Router();
+var cm = require("../models/chatsModel");
+var auth = require("../middleware/auth");
 
 router.post("/", auth, function(req, res) {
     cm.add(req.body, function(err, result) {
-        if(err) {
+        if (err) {
             res.sendStatus(500);
         }
         else {
@@ -19,7 +19,7 @@ router.post("/", auth, function(req, res) {
 
 router.get("/", auth, function(req, res) {
     cm.all(function(err, result) {
-        if(err) {
+        if (err) {
             res.sendStatus(500);
         }
         else {

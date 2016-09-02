@@ -20,7 +20,7 @@ var UserDetailComponent = (function () {
     UserDetailComponent.prototype.add = function (user) {
         var chat = new app_chat_entity_1.Chat();
         chat._id = angular2_uuid_1.UUID.UUID();
-        chat.chatToId = user.id;
+        chat.chatToId = user._id;
         chat.chatToName = user.name;
         chat.chatName = "New Chat";
         this.chatsService.addChat(chat);

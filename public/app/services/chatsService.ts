@@ -9,17 +9,6 @@ export class ChatsService {
     public chatList: Chat[] = [];
     private chatsUrl = "/api/chats";
 
-    private extractChats = function(res: Response): void {
-        if(res.status === 200) {
-            let chats = res.json();
-            console.log(chats);
-            for(var chat of chats) {
-                console.log(chat);
-                this.chatList.push(this.createChat(chat));
-            }
-        }
-    };
-
     constructor(private http: Http) {
     }
 
@@ -45,11 +34,20 @@ export class ChatsService {
          return Promise.reject(error.message || error);
      }
 
-     private handleChatAdded (chat: Chat, res: Response): void {
-         if(res.status === 201) {
+     private handleChatAdded(chat: Chat, res: Response): void {
+         if (res.status === 201) {
              this.chatList.push(chat);
          } else {
              console.log("Error adding chat");
+         }
+     };
+
+     private extractChats(res: Response): void {
+         if (res.status === 200) {
+             let chats = res.json();
+             for (let chat of chats) {
+                 this.chatList.push(this.createChat(chat));
+             }
          }
      };
 

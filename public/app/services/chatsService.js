@@ -17,17 +17,6 @@ var ChatsService = (function () {
         this.http = http;
         this.chatList = [];
         this.chatsUrl = "/api/chats";
-        this.extractChats = function (res) {
-            if (res.status === 200) {
-                var chats = res.json();
-                console.log(chats);
-                for (var _i = 0, chats_1 = chats; _i < chats_1.length; _i++) {
-                    var chat = chats_1[_i];
-                    console.log(chat);
-                    this.chatList.push(this.createChat(chat));
-                }
-            }
-        };
     }
     // Get
     ChatsService.prototype.getChats = function () {
@@ -56,6 +45,16 @@ var ChatsService = (function () {
         }
         else {
             console.log("Error adding chat");
+        }
+    };
+    ;
+    ChatsService.prototype.extractChats = function (res) {
+        if (res.status === 200) {
+            var chats = res.json();
+            for (var _i = 0, chats_1 = chats; _i < chats_1.length; _i++) {
+                var chat = chats_1[_i];
+                this.chatList.push(this.createChat(chat));
+            }
         }
     };
     ;

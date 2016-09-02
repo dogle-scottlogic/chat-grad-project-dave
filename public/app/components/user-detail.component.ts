@@ -19,7 +19,7 @@ export class UserDetailComponent {
     public add(user: User) {
         const chat = new Chat();
         chat._id = UUID.UUID();
-        chat.chatToId = user.id;
+        chat.chatToId = user._id;
         chat.chatToName = user.name;
         chat.chatName = "New Chat";
         this.chatsService.addChat(chat);

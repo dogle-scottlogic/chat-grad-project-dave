@@ -1,19 +1,23 @@
-var oAuthGithub = require("../oauth-github");
-var oauthClientId = process.env.OAUTH_CLIENT_ID || "fa4a22095c46dfc1d832";
-var oauthSecret = process.env.OAUTH_SECRET || "4bbf1b48173c3cbc35917fad9f94ef2b584cbaa4";
-var githubAuthoriser = oAuthGithub(oauthClientId, oauthSecret);
-var express = require('express');
+var express = require("express");
 var sessions = {};
-var router = express.Router(),
-um = require('../models/UserModel'),
-auth = require("../middleware/auth");
+var router = express.Router();
+var um = require("../models/UserModel");
+var auth = require("../middleware/auth");
+var githubAuthoriser;
+var setGithubAuthoriser = function (authoriser) {
+    githubAuthoriser = authoriser;
+};
 
 router.get("/", function(req, res) {
     githubAuthoriser.authorise(req, function(githubUser, token) {
         if (githubUser) {
             um.find(githubUser.login, function(err, user) {
                 if (!user) {
-                    um.add(user, function(err, result) {
+                    um.add({
+                            _id: githubUser.login,
+                            name: githubUser.name,
+                            avatarUrl: githubUser.avatar_url,
+                        }, function(err, result) {
                         if (err) {
                             console.log("Error adding user", err);
                         }
@@ -39,4 +43,8 @@ router.get("/uri", function(req, res) {
     });
 });
 
-module.exports = {sessions: sessions, router: router};
+module.exports = {
+    sessions: sessions,
+    router: router,
+    setGithubAuthoriser: setGithubAuthoriser,
+};

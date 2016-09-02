@@ -1,5 +1,5 @@
 export class User {
-    public id: any;
+    public _id: any;
     public name: string;
     public avatarUrl: string;
 }
